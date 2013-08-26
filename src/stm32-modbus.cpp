@@ -18,6 +18,7 @@ void setup() {
 	t2.configureIT(TIM_IT_Update);
 	t2.setState();
 
+	slave.SlaveRtu::init();
 	slave.init();
 }
 
