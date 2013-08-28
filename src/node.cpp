@@ -51,7 +51,7 @@ uint8_t Node::updateShortInputs(uint16_t index, uint16_t length) {
 uint8_t Node::updateHoldings(uint16_t index, uint16_t length) {
 	for (uint16_t i = 0; i < length; i++) {
 		uint16_t c = this->getHolding(index + i);
-		eeprom.write(index + i, &c, sizeof(uint16_t));
+		eeprom.write((index + i) * sizeof(uint16_t), &c, sizeof(uint16_t));
 	}
 	return 0;
 }
