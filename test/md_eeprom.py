@@ -17,8 +17,11 @@ def getOffsets():
 
 def setOffsets(x, y, z):
 	node.write_register(0, x, 0, 6, True)
+	time.sleep(0.1)
 	node.write_register(1, y, 0, 6, True)
+	time.sleep(0.1)
 	node.write_register(2, z, 0, 6, True)
+	time.sleep(0.1)
 
 
 print "x: %+3d, y: %+3d, z: %+3d" % getOffsets() 

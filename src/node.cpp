@@ -36,10 +36,7 @@ void Node::init() {
 
 	accelerometer.init();
 
-	//eeprom.read(0x00, (void *)_holdings, 6);
-	this->setHolding(0, 100);
-	this->setHolding(1, 200);
-	this->setHolding(2, 300);
+	eeprom.read(0x00, _holdings, 6);
 }
 
 uint8_t Node::updateShortInputs(uint16_t index, uint16_t length) {
