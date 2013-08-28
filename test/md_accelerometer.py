@@ -6,6 +6,13 @@ node.serial.parity = 'E'
 
 #node.debug = True
 
+def getAccelerometerValues():
+	x = node.read_register(0, 0, 4, True)
+	y = node.read_register(1, 0, 4, True)
+	z = node.read_register(2, 0, 4, True)
+	return x, y, z
+
+
 print "Adxl345: "
 
 count = 10
@@ -16,9 +23,7 @@ y = 0
 z = 0
 
 while (i > 0):
-	xx = node.read_register(0, 0, 4, True)
-	yy = node.read_register(1, 0, 4, True)
-	zz = node.read_register(2, 0, 4, True)
+	xx, yy, zz = getAccelerometerValues()
 	print "x: %+3d, y: %+3d, z: %+3d" % (xx, yy, zz)
 	i -= 1;
 	x += xx;
