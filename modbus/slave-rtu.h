@@ -49,6 +49,11 @@ public:
 
 protected:
 
+	uint8_t * _bit_inputs;
+	uint16_t * _short_inputs;
+	uint8_t * _coils;
+	uint16_t * _holdings;
+
 	int16_t _coil_length;
 	uint16_t _bit_input_length;
 	uint16_t _short_input_length;
@@ -68,10 +73,7 @@ private:
 
 	const uint8_t _address;
 
-	uint8_t * _bit_inputs;
-	uint16_t * _short_inputs;
-	uint8_t * _coils;
-	uint16_t * _holdings;
+
 
 	bool checkFrameCrc(const uint8_t *p, uint8_t length);
 	void appendCrcAndReply(uint8_t length_tx);
