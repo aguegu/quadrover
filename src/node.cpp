@@ -37,6 +37,8 @@ void Node::init() {
 	accelerometer.init();
 
 	eeprom.read(0x00, _holdings, 6);
+	for (uint8_t i = 0; i < 3; i++)
+		accelerometer.setOffsets(i, this->getHolding(i));
 }
 
 uint8_t Node::updateShortInputs(uint16_t index, uint16_t length) {
