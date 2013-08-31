@@ -42,10 +42,11 @@ void Node::init() {
 }
 
 uint8_t Node::updateShortInputs(uint16_t index, uint16_t length) {
-	accelerometer.measure();
-	for (uint16_t i = 0; i < length; i++)
+	for (uint16_t i = 0; i < length; i++) {
+		accelerometer.measure(index + i);
 		this->setShortInput(index + i,
 				*(accelerometer.getAcceleratins() + index + i));
+	}
 
 	return 0;
 }
