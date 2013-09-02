@@ -23,7 +23,7 @@ Node::Node(UsartRs485Modbus & usart, uint8_t address) :
 	this->initBitInputs(0);
 	this->initShortInputs(3);
 	this->initCoils(0);
-	this->initHoldings(3);
+	this->initHoldings(6);
 }
 
 Node::~Node() {

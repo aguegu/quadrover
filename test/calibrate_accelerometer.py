@@ -51,34 +51,35 @@ print "\toffsets: x: %+3d, y:%+3d, z: %+3d" % getOffsets()
 
 raw_input("2. put Z+ in up direction: ")
 z_positive = getAverage(2, 100)
-print "\tZ+ : %d" % z_positive
+print "\tZ+ : %+d" % z_positive
 
 raw_input("3. put Z- in up direction: ")
 z_negative = getAverage(2, 100)
-print "\tZ- : %d" % z_negative
+print "\tZ- : %+d" % z_negative
 
 raw_input("4. put X+ in up direction: ")
 x_positive = getAverage(0, 100)
-print "\tX+ : %d" % x_positive
+print "\tX+ : %+d" % x_positive
 
 raw_input("5. put X- in up direction: ")
 x_negative = getAverage(0, 100)
-print "\tX- : %d" % x_negative
+print "\tX- : %+d" % x_negative
 
 raw_input("6. put Y+ in up direction: ")
 y_positive = getAverage(1, 100)
-print "\tY+ : %d" % y_positive
+print "\tY+ : %+d" % y_positive
 
 raw_input("7. put Y- in up direction: ")
 y_negative = getAverage(1, 100)
-print "\tY- : %d" % y_negative
+print "\tY- : %+d" % y_negative
 
 x_offset = round(-(x_negative + x_positive) / 8.0)
 y_offset = round(-(y_negative + y_positive) / 8.0)
 z_offset = round(-(z_negative + z_positive) / 8.0)
-print "X offseit: %d" % x_offset
-print "Y offseit: %d" % y_offset
-print "Z offseit: %d" % z_offset
+
+print "X offseit: %+d" % x_offset
+print "Y offseit: %+d" % y_offset
+print "Z offseit: %+d" % z_offset
 
 reply = raw_input("8. update offsets: [y/N] ")
 
