@@ -23,7 +23,7 @@ Node::Node(UsartRs485Modbus & usart, uint8_t address) :
 	this->initBitInputs(0);
 	this->initShortInputs(3);
 	this->initCoils(0);
-	this->initHoldings(6);
+	this->initHoldings(3);
 }
 
 Node::~Node() {
@@ -36,7 +36,7 @@ void Node::init() {
 
 	accelerometer.init();
 
-	eeprom.read(0x00, _holdings, 6);
+	eeprom.read(0x00, _holdings, 3);
 	for (uint8_t i = 0; i < 3; i++)
 		accelerometer.setOffsets(i, this->getHolding(i));
 }
@@ -55,7 +55,8 @@ uint8_t Node::updateHoldings(uint16_t index, uint16_t length) {
 	for (uint16_t i = 0; i < length; i++) {
 		uint16_t c = this->getHolding(index + i);
 		eeprom.write((index + i) * sizeof(uint16_t), &c, sizeof(uint16_t));
-		accelerometer.setOffsets(index+i, c);
+		if (index + i < 3)
+			accelerometer.setOffsets(index + i, c);
 	}
 	return 0;
 }
